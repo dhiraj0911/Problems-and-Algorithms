@@ -30,7 +30,7 @@ class Solution{
             if(pet<p[i].distance){
                 dist += p[i].distance - pet;
                 pet = 0;
-                index = (i+1)%n;
+                index = (i+1);
             }
             else{
                 pet -= p[i].distance;
