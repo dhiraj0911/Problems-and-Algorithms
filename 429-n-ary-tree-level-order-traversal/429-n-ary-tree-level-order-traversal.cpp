@@ -35,21 +35,14 @@ public:
             vector<int> v;
             int s = q.size();
             for(int i = 0; i < s; i++) {
-                Node* temp = q.front();
+                Node *temp = q.front();
                 q.pop();
                 v.push_back(temp->val);
-                for(int i = 0; i < temp->children.size(); i++) {
-                    q.push(temp->children[i]);
+                for(int j = 0; j < temp->children.size(); j++) {
+                    q.push(temp->children[j]);
                 }
             }
             ans.push_back(v);
-            v.clear();
         }
     }
 };
-
-// for(int i = 0; i < q.front().children.size(); i++) {
-//                 Node* temp = q.front();
-//                 q.pop();
-//                 if(root->children)
-//             }
