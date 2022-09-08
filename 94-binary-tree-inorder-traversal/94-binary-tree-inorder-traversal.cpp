@@ -13,14 +13,14 @@ class Solution {
 public:
     vector<int> inorderTraversal(TreeNode* root) {
         vector<int> v;
-        Inorder(root, v);
+        inorder(root, v);
         return v;
     }
-    void Inorder(TreeNode *root, vector<int> &v){
-        if(root == NULL)
+    void inorder(TreeNode *root, vector<int> &v) {
+        if(!root)
             return;
-        Inorder(root->left, v);
+        inorder(root->left, v);
         v.push_back(root->val);
-        Inorder(root->right, v);
+        inorder(root->right, v);
     }
 };
