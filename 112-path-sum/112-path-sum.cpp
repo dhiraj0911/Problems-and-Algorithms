@@ -12,21 +12,20 @@
 class Solution {
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
-        return checkSum(root, targetSum, 0);
+        return inorder(root, targetSum, 0);
     }
     
-    bool checkSum(TreeNode *root, int target, int s) {
+    bool inorder(TreeNode *root, int target, int s) {
         if(!root)
             return false;
-        if(root->left == NULL and root->right == NULL) {
-            if(s + root->val == target) 
+        if(!root->left && !root->right) {
+            if(s + root->val == target)
                 return true;
             else
-                return false;
+                false;
         }
-        int left = checkSum(root->left, target, s + root->val);
-        int right = checkSum(root->right, target, s + root->val);
+        int left = inorder(root->left, target, s + root->val);
+        int right = inorder(root->right, target, s + root->val);
         return left or right;
     }
-    
 };
