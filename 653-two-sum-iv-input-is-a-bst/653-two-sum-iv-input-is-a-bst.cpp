@@ -11,14 +11,14 @@
  */
 class Solution {
 public:
-    bool findTarget(TreeNode* root, int k) {
-        vector<int> v;
-        Inorder(root, v);
+    vector<int> v;
+    bool findTarget(TreeNode* root, int target) {
+        inorder(root);
         int low = 0, high = v.size() - 1;
-        while(low < high){
-            if(v[low] + v[high] == k)
+        while(low < high) {
+            if(v[low] + v[high] == target)
                 return true;
-            else if(v[low] + v[high] > k)
+            else if(v[low] + v[high] > target)
                 high--;
             else
                 low++;
@@ -26,11 +26,11 @@ public:
         return false;
     }
     
-    void Inorder(TreeNode* root, vector<int> &v){
-        if(root == NULL)
+    void inorder(TreeNode *root) {
+        if(!root)
             return;
-        Inorder(root->left, v);
+        inorder(root->left);
         v.push_back(root->val);
-        Inorder(root->right, v);
-    }
+        inorder(root->right);
+    } 
 };
