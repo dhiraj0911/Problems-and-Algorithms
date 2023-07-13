@@ -33,4 +33,12 @@ char* reverse(char *S, int len)
     //     swap(S[low++], S[high--]);
     // }
     // return S;
+    stack<char> s;
+    for(int i = 0; i < len; i++)
+    s.push(S[i]);
+    for(int i = 0; i < len; i++) {
+        S[i] = s.top();
+        s.pop();
+    }
+    return S;
 }
