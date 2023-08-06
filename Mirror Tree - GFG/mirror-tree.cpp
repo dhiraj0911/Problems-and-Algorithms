@@ -118,9 +118,7 @@ class Solution {
         mirror(root->left);
         mirror(root->right);
         
-        Node* temp = root->right;
-        root->right = root->left;
-        root->left = temp;
+        swap(root->left, root->right);
     }
 };
 
